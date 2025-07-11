@@ -344,7 +344,12 @@ namespace MyCafe
                         Console.WriteLine("Removing canceled");
                     }
 
-                    if (tipType != 3)
+                    if(items.Length == 0)
+                    {
+                        tipType = 3;
+                        tipValue = 0;
+                    }
+                    else if (tipType != 3)
                     {
                         AddTip();
                     }
@@ -355,6 +360,19 @@ namespace MyCafe
                     Console.WriteLine(ex.Message + "\n");
                 }
             }
+        }
+
+        static void ClearAll()
+        {
+            while (items.Length > 0)
+            {
+                RemoveAtIndex(0);
+            }
+
+            tipType = 3;
+            tipValue = 0;
+
+            Console.WriteLine("All items have been cleared.");
         }
         static void Loop()
         {
@@ -379,14 +397,14 @@ namespace MyCafe
                     {
                         Console.WriteLine("Good-bye and thanks for using this program.");
                         Environment.Exit(0);
-                    } else if(ans == 1)
+                    } else if (ans == 1)
                     {
                         AddItem();
-                    } else if(ans == 2)
+                    } else if (ans == 2)
                     {
                         if (items.Length > 0) RemoveItem();
                         else throw new Exception("You have not ordered anything yet.");
-                    } else if(ans == 3)
+                    } else if (ans == 3)
                     {
                         if (items.Length > 0) AddTip();
                         else throw new Exception("There are no items in the bill to add tip for.");
@@ -394,6 +412,10 @@ namespace MyCafe
                     {
                         if (items.Length > 0) DisplayBill();
                         else throw new Exception("There are no items in the bill to desplay.");
+                    } else if (ans == 5)
+                    {
+                        if (items.Length > 0) ClearAll();
+                        else throw new Exception("There are no items in the bill to clear.");
                     }
 
                 } catch (Exception ex)
