@@ -6,7 +6,6 @@ namespace MyCafe
     {
         string description = "";
         double price = 0;
-
         public string Description
         {
             get
@@ -34,6 +33,8 @@ namespace MyCafe
     internal class Program
     {
         static Item[] items = Array.Empty<Item>();
+        static int tipType = 3;
+        static double tipValue = 0;
         static void CreateMenu()
         {
             Console.WriteLine(
@@ -199,6 +200,72 @@ namespace MyCafe
                 }
             }
         }
+
+        static double NetTotal()
+        {
+            double sum = 0;
+            foreach (Item item in items)
+            {
+                sum += item.Price;
+            }
+            return sum;
+        }
+        static void AddTip()
+        {
+            Console.WriteLine(
+                        $"\nNet Total: ${NetTotal():F2}\n"+
+                        "1 - Tip Percentage\n" +
+                        "2 - Tip Amount\n" +
+                        "3 - No Tip"
+                        );
+            while (true) {
+                try
+                {
+                    Console.Write("Enter Tip Method: ");
+                    tipType = int.Parse(Console.ReadLine());
+                    if (tipType < 1 || tipType > 3)
+                    {
+                        throw new Exception("Enter a number between 1 to 3");
+                    }
+
+                    if(tipType == 1 || tipType == 2)
+                    {
+                        while (true)
+                        {
+                            try
+                            {
+                                if (tipType == 1)
+                                {
+                                    Console.Write("Enter tip percentage: ");
+                                }
+                                else
+                                {
+                                    Console.Write("Enter tip amount: ");
+                                }
+
+                                tipValue = double.Parse(Console.ReadLine());
+                                if (tipValue <= 0)
+                                {
+                                    throw new Exception("Enter a number >0");
+                                }
+
+                                break;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message + "\n");
+                            }
+                        }
+                    }
+
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + "\n");
+                }
+            }
+        }
         static void Loop()
         {
             int ans = 0;
@@ -229,6 +296,10 @@ namespace MyCafe
                     {
                         if (items.Length > 0) RemoveItem();
                         else throw new Exception("You have not ordered anything yet.");
+                    } else if(ans == 3)
+                    {
+                        if (items.Length > 0) AddTip();
+                        else throw new Exception("There are no items in the bill to add tip for.");
                     }
 
                 } catch (Exception ex)
