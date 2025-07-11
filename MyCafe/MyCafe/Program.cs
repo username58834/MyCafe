@@ -382,6 +382,11 @@ namespace MyCafe
                 {
                     Console.Write("\nEnter the file path to save items to: ");
                     fileName = Console.ReadLine();
+                    if (fileName.Split('.')[0].Length < 1 || fileName.Split('.')[0].Length > 10)
+                    {
+                        throw new Exception("File name must contain 1 to 10 letters.");
+                    }
+
                     using (FileStream file = File.Create(fileName))
                     {
                         StreamWriter writter = new StreamWriter(file);
@@ -412,6 +417,10 @@ namespace MyCafe
                 {
                     Console.Write("\nEnter the path to load items from: ");
                     fileName = Console.ReadLine();
+                    if (fileName.Split('.')[0].Length < 1 || fileName.Split('.')[0].Length > 10)
+                    {
+                        throw new Exception("File name must contain 1 to 10 letters.");
+                    }
 
                     using (FileStream file = File.OpenRead(fileName))
                     {

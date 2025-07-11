@@ -26,3 +26,4 @@ E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\refint\MyCafe.dll
 E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.pdb
 E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.genruntimeconfig.cache
 E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\ref\MyCafe.dll
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.sourcelink.json
