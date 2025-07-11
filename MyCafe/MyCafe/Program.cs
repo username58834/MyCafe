@@ -371,8 +371,6 @@ namespace MyCafe
 
             tipType = 3;
             tipValue = 0;
-
-            Console.WriteLine("All items have been cleared.");
         }
 
         static void Save()
@@ -394,6 +392,46 @@ namespace MyCafe
                         writter.Close();
                     }
                     Console.WriteLine($"Write to file {fileName} was successful.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + "\n");
+                }
+            }
+        }
+
+        static void Load()
+        {
+            ClearAll();
+            string fileName, line;
+
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nEnter the path to load items from: ");
+                    fileName = Console.ReadLine();
+
+                    using (FileStream file = File.OpenRead(fileName))
+                    {
+                        StreamReader reader = new StreamReader(file);
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            Array.Resize(ref items, items.Length + 1);
+                            items[items.Length - 1] = new Item();
+                            items[items.Length - 1].Description = line.Split(',')[0];
+                            items[items.Length - 1].Price = double.Parse(line.Split(',')[1]);
+                        }
+                        
+                        reader.Close();
+                    }
+
+                    if(items.Length > 5)
+                    {
+                        throw new Exception("The number of items cannot exceed 5.");
+                    }
+                    Console.WriteLine($"Read from {fileName} was successful.");
                     break;
                 }
                 catch (Exception ex)
@@ -442,12 +480,18 @@ namespace MyCafe
                         else throw new Exception("There are no items in the bill to desplay.");
                     } else if (ans == 5)
                     {
-                        if (items.Length > 0) ClearAll();
+                        if (items.Length > 0) {
+                            ClearAll();
+                            Console.WriteLine("All items have been cleared.");
+                        }
                         else throw new Exception("There are no items in the bill to clear.");
                     } else if(ans == 6)
                     {
                         if (items.Length > 0) Save();
                         else throw new Exception("There are no items in the bill to save.");
+                    } else if (ans == 7)
+                    {
+                        Load();
                     }
 
                 } catch (Exception ex)
