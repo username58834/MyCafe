@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\SummerPractice\\MyCafe\\MyCafe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE7CC0A7-BADD-4D33-87F0-E1DE43127D12}|MyCafe\\MyCafe.csproj|d:\\summerpractice\\mycafe\\mycafe\\mycafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE7CC0A7-BADD-4D33-87F0-E1DE43127D12}|MyCafe\\MyCafe.csproj|solutionrelative:mycafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\Program.cs",
+              "RelativeDocumentMoniker": "MyCafe\\Program.cs",
+              "ToolTip": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\Program.cs",
+              "RelativeToolTip": "MyCafe\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T01:31:44.709Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
