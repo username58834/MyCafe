@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Elvira\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Elya\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\MyCafe.csproj",
+      "projectUniqueName": "E:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\MyCafe.csproj",
       "projectName": "MyCafe",
-      "projectPath": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\MyCafe.csproj",
-      "packagesPath": "C:\\Users\\Elvira\\.nuget\\packages\\",
-      "outputPath": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\obj\\",
+      "projectPath": "E:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\MyCafe.csproj",
+      "packagesPath": "C:\\Users\\Elya\\.nuget\\packages\\",
+      "outputPath": "E:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Elvira\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Elya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -50,8 +45,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -72,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

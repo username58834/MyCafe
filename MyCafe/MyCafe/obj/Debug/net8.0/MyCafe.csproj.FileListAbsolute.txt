@@ -12,3 +12,17 @@ D:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\refint\MyCafe.dll
 D:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.pdb
 D:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.genruntimeconfig.cache
 D:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\ref\MyCafe.dll
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\bin\Debug\net8.0\MyCafe.exe
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\bin\Debug\net8.0\MyCafe.deps.json
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\bin\Debug\net8.0\MyCafe.runtimeconfig.json
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\bin\Debug\net8.0\MyCafe.dll
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\bin\Debug\net8.0\MyCafe.pdb
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.GeneratedMSBuildEditorConfig.editorconfig
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.AssemblyInfoInputs.cache
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.AssemblyInfo.cs
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.csproj.CoreCompileInputs.cache
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.dll
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\refint\MyCafe.dll
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.pdb
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\MyCafe.genruntimeconfig.cache
+E:\SummerPractice\MyCafe\MyCafe\MyCafe\obj\Debug\net8.0\ref\MyCafe.dll

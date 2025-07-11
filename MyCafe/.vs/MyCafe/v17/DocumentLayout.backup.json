@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\SummerPractice\\MyCafe\\MyCafe\\",
+  "WorkspaceRootPath": "E:\\SummerPractice\\MyCafe\\MyCafe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE7CC0A7-BADD-4D33-87F0-E1DE43127D12}|MyCafe\\MyCafe.csproj|d:\\summerpractice\\mycafe\\mycafe\\mycafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE7CC0A7-BADD-4D33-87F0-E1DE43127D12}|MyCafe\\MyCafe.csproj|e:\\summerpractice\\mycafe\\mycafe\\mycafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE7CC0A7-BADD-4D33-87F0-E1DE43127D12}|MyCafe\\MyCafe.csproj|solutionrelative:mycafe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,20 +18,30 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\Program.cs",
+              "DocumentMoniker": "E:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\Program.cs",
               "RelativeDocumentMoniker": "MyCafe\\Program.cs",
-              "ToolTip": "D:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\Program.cs*",
+              "ToolTip": "E:\\SummerPractice\\MyCafe\\MyCafe\\MyCafe\\Program.cs*",
               "RelativeToolTip": "MyCafe\\Program.cs*",
-              "ViewState": "AgIAACYAAAAAAAAAAAAYwDgAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowF4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-11T01:31:44.709Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }
