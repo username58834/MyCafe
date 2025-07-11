@@ -374,6 +374,34 @@ namespace MyCafe
 
             Console.WriteLine("All items have been cleared.");
         }
+
+        static void Save()
+        {
+            string fileName;
+            while (true)
+            {
+                try
+                {
+                    Console.Write("\nEnter the file path to save items to: ");
+                    fileName = Console.ReadLine();
+                    using (FileStream file = File.Create(fileName))
+                    {
+                        StreamWriter writter = new StreamWriter(file);
+                        foreach (Item item in items)
+                        {
+                            writter.WriteLine($"{item.Description},{item.Price}");
+                        }
+                        writter.Close();
+                    }
+                    Console.WriteLine($"Write to file {fileName} was successful.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + "\n");
+                }
+            }
+        }
         static void Loop()
         {
             int ans = 0;
@@ -416,6 +444,10 @@ namespace MyCafe
                     {
                         if (items.Length > 0) ClearAll();
                         else throw new Exception("There are no items in the bill to clear.");
+                    } else if(ans == 6)
+                    {
+                        if (items.Length > 0) Save();
+                        else throw new Exception("There are no items in the bill to save.");
                     }
 
                 } catch (Exception ex)
