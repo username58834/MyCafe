@@ -57,6 +57,14 @@ namespace MyCafe
                 );
         }
 
+        static string RightAlign(string line, int spaces)
+        {
+            for (int j = 0; j <= spaces; j++)
+            {
+                line += " ";
+            }
+            return line;
+        }
         static void RemoveAtIndex(int x)
         {
             for(int i = x; i < items.Length - 1; i++)
@@ -64,66 +72,11 @@ namespace MyCafe
                 items[i] = items[i + 1];
             }
             Array.Resize(ref items, items.Length - 1);
-        }
-        static void AddItem()
-        {
-            string description = "";
-            double price = 0;
-            while (true)
-            {
-                try
-                {
-                    if (items.Length >= 5)
-                    {
-                        throw new Exception("You cannot order more than 5 items.");
-                    }
-                    Console.Write("\nEnter description: ");
-                    description = Console.ReadLine();
-
-                    if(description.Length < 3 || description.Length > 20)
-                    {
-                        throw new Exception("Write from 3 to 20 characters");
-                    }
-
-                    while (true)
-                    {
-                        try
-                        {
-                            Console.Write("Enter price: ");
-                            price = double.Parse(Console.ReadLine());
-
-                            if (price <= 0)
-                            {
-                                throw new Exception("Price must be >0");
-                            }
-
-                            break;
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.Message + "\n");
-                        }
-                    }
-
-                    Array.Resize(ref items, items.Length + 1);
-                    items[items.Length - 1] = new Item();
-                    items[items.Length - 1].Description = description;
-                    items[items.Length - 1].Price = price;
-
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-
-            Console.WriteLine("Add item was successful.");
-        }
+        }        
 
         static int FindLongest()
         {
-            int maxSize = 6;
+            int maxSize = 5;
             foreach(Item item in items)
             {
                 if(item.Price.ToString("F2").Length > maxSize)
@@ -132,73 +85,6 @@ namespace MyCafe
                 }
             }
             return maxSize;
-        }
-        static void RemoveItem()
-        {
-            string line;
-            int maxSize = FindLongest();
-            int ans = 0;
-
-            line = "\nItemNo  Description         ";
-            for (int j = 0; j <= maxSize - 5; j++)
-            {
-                line += " ";
-            }
-            line += "Price\n------  -----------         ";
-            for (int j = 0; j <= maxSize; j++)
-            {
-                line += "-";
-            }
-
-            Console.WriteLine(line);
-
-            
-            for (int i = 1; i <= items.Length; i++)
-            {
-                line = "     " + i + "  " + items[i - 1].Description;
-                for (int j = 1; j < 19 - items[i - 1].Description.Length; j++)
-                {
-                    line += " ";
-                }
-                line += "  ";
-                
-                for (int j = 1; j <= maxSize - items[i - 1].Price.ToString("F2").Length; j++)
-                {
-                    line += " ";
-                }
-                line += "$" + items[i - 1].Price.ToString("F2");
-
-                Console.WriteLine(line);             
-            }            
-            
-            while (true)
-            {
-                try
-                {
-                    Console.WriteLine("Enter the item number to remove or 0 to cancel: ");
-                    ans = int.Parse(Console.ReadLine());
-                    if(ans < 0 || ans > items.Length)
-                    {
-                        throw new Exception($"Enter a number between 0 to {items.Length}");
-                    }
-
-                    if (ans > 0)
-                    {
-                        RemoveAtIndex(ans - 1);
-                        Console.WriteLine("Remove item was successful");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Removing canceled");
-                    }
-
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message + "\n");
-                }
-            }
         }
 
         static double NetTotal()
@@ -209,6 +95,21 @@ namespace MyCafe
                 sum += item.Price;
             }
             return sum;
+        }
+
+        static double GetTip()
+        {
+            if (tipType == 1)
+            {
+                return NetTotal() * tipValue / 100.0;
+            } else if(tipType == 2)
+            {
+                return tipValue;
+            }
+            else
+            {
+                return 0;
+            }
         }
         static void AddTip()
         {
@@ -266,6 +167,195 @@ namespace MyCafe
                 }
             }
         }
+
+        static void DisplayBill()
+        {
+            string line;
+            int maxSize = Math.Max(FindLongest(), (NetTotal() + GetTip() + NetTotal() * 5 / 100).ToString("F2").Length) + 1;
+            int ans = 0;
+
+            line = "\nDescription         ";
+            line = RightAlign(line, maxSize - 4);
+            line += "  Price\n---------------------  ";
+            for (int j = 0; j <= maxSize; j++)
+            {
+                line += "-";
+            }
+            Console.WriteLine(line);
+
+
+            for (int i = 1; i <= items.Length; i++)
+            {
+                line = items[i - 1].Description;
+                for (int j = 1; j <= 20 - items[i - 1].Description.Length; j++)
+                {
+                    line += " ";
+                }
+                line += "  ";
+
+                for (int j = 0; j <= maxSize - items[i - 1].Price.ToString("F2").Length; j++)
+                {
+                    line += " ";
+                }
+                line += "$" + items[i - 1].Price.ToString("F2");
+
+                Console.WriteLine(line);
+            }
+
+            line = "---------------------  ";
+            for (int j = 0; j <= maxSize; j++)
+            {
+                line += "-";
+            }
+            Console.WriteLine(line);
+
+            line = "            Net Total ";
+            line = RightAlign(line, maxSize - NetTotal().ToString("F2").Length);
+            line += $"${NetTotal():F2}\n";
+
+            line += "           Tip Amount ";
+            line = RightAlign(line, maxSize - GetTip().ToString("F2").Length);
+            line += $"${GetTip():F2}\n";
+
+            line += "           GST Amount ";
+            line = RightAlign(line, maxSize - (NetTotal() * 5 / 100).ToString("F2").Length);
+            line += $"${NetTotal() * 5 / 100:F2}\n";
+
+            line += "         Total Amount ";
+            line = RightAlign(line, maxSize - (NetTotal() + GetTip() + NetTotal() * 5 / 100).ToString("F2").Length);
+            line += $"${(NetTotal() + GetTip() + NetTotal() * 5 / 100):F2}\n";
+
+            Console.WriteLine(line);
+        }
+        static void AddItem()
+        {
+            string description = "";
+            double price = 0;
+            while (true)
+            {
+                try
+                {
+                    if (items.Length >= 5)
+                    {
+                        throw new Exception("You cannot order more than 5 items.");
+                    }
+                    Console.Write("\nEnter description: ");
+                    description = Console.ReadLine();
+
+                    if (description.Length < 3 || description.Length > 20)
+                    {
+                        throw new Exception("Write from 3 to 20 characters");
+                    }
+
+                    while (true)
+                    {
+                        try
+                        {
+                            Console.Write("Enter price: ");
+                            price = double.Parse(Console.ReadLine());
+
+                            if (price <= 0)
+                            {
+                                throw new Exception("Price must be >0");
+                            }
+
+                            break;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message + "\n");
+                        }
+                    }
+
+                    Array.Resize(ref items, items.Length + 1);
+                    items[items.Length - 1] = new Item();
+                    items[items.Length - 1].Description = description;
+                    items[items.Length - 1].Price = price;
+
+                    if(tipType != 3)
+                    {
+                        AddTip();
+                    }
+                    
+                    Console.WriteLine("Add item was successful.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    if (items.Length >= 5) break;
+                }
+            }            
+        }
+
+        static void RemoveItem()
+        {
+            string line;
+            int maxSize = FindLongest() + 1;
+            int ans = 0;
+
+            line = "\nItemNo  Description         ";
+            line = RightAlign(line, maxSize - 5);
+            line += "  Price\n------  -----------           ";
+            for (int j = 0; j <= maxSize; j++)
+            {
+                line += "-";
+            }
+
+            Console.WriteLine(line);
+
+
+            for (int i = 1; i <= items.Length; i++)
+            {
+                line = "     " + i + "  " + items[i - 1].Description;
+                for (int j = 1; j <= 20 - items[i - 1].Description.Length; j++)
+                {
+                    line += " ";
+                }
+                line += "  ";
+
+                for (int j = 1; j <= maxSize - items[i - 1].Price.ToString("F2").Length; j++)
+                {
+                    line += " ";
+                }
+                line += "$" + items[i - 1].Price.ToString("F2");
+
+                Console.WriteLine(line);
+            }
+
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Enter the item number to remove or 0 to cancel: ");
+                    ans = int.Parse(Console.ReadLine());
+                    if (ans < 0 || ans > items.Length)
+                    {
+                        throw new Exception($"Enter a number between 0 to {items.Length}");
+                    }
+
+                    if (ans > 0)
+                    {
+                        RemoveAtIndex(ans - 1);
+                        Console.WriteLine("Remove item was successful");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Removing canceled");
+                    }
+
+                    if (tipType != 3)
+                    {
+                        AddTip();
+                    }
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message + "\n");
+                }
+            }
+        }
         static void Loop()
         {
             int ans = 0;
@@ -300,6 +390,10 @@ namespace MyCafe
                     {
                         if (items.Length > 0) AddTip();
                         else throw new Exception("There are no items in the bill to add tip for.");
+                    } else if (ans == 4)
+                    {
+                        if (items.Length > 0) DisplayBill();
+                        else throw new Exception("There are no items in the bill to desplay.");
                     }
 
                 } catch (Exception ex)
