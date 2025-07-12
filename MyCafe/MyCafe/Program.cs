@@ -349,7 +349,7 @@ namespace MyCafe
                         tipType = 3;
                         tipValue = 0;
                     }
-                    else if (tipType != 3)
+                    else if (ans != 0)
                     {
                         AddTip();
                     }
